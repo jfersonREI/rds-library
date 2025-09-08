@@ -1,1 +1,0 @@
-import{j as e}from"./index-B2TXURf_.js";const n=()=>e.jsxs("div",{className:"p-8 text-center text-xl font-semibold",children:[e.jsx("h2",{children:"Billing Information"}),e.jsx("p",{children:"Manage billing settings and invoices."})]});export{n as default};
