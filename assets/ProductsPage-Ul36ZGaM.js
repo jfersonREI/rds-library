@@ -1,1 +1,0 @@
-import{j as e}from"./index-DYIrbvBi.js";const r=()=>e.jsxs("div",{className:"p-8 text-center text-xl font-semibold",children:[e.jsx("h2",{children:"Products Management"}),e.jsx("p",{children:"Oversee your product catalog."})]});export{r as default};
