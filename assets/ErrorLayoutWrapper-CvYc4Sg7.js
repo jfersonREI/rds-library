@@ -1,1 +1,0 @@
-import{j as s,X as e,L as r,Y as t,Z as o,O as x,_ as j,N as i,$ as n}from"./index-CvFeUJc_.js";const d=({children:a})=>s.jsxs(s.Fragment,{children:[s.jsx(e,{}),s.jsx(r,{}),s.jsx(t,{}),s.jsxs(o,{children:[a||s.jsx(x,{})," "]}),s.jsx(j,{}),s.jsx("span",{className:"fixed right-4 bottom-4 isolate z-50",children:s.jsx(i,{})}),s.jsx(n,{})]});export{d as default};

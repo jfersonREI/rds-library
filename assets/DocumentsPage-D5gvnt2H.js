@@ -1,1 +1,0 @@
-import{j as e}from"./index-CvFeUJc_.js";const s=()=>e.jsxs("div",{className:"p-8 text-center text-xl font-semibold",children:[e.jsx("h2",{children:"Documents"}),e.jsx("p",{children:"Access important documents."})]});export{s as default};
