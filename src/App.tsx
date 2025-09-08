@@ -38,8 +38,12 @@ export type AppRouteObject = RouteObject & {
 // --- END CORRECTED TYPE DEFINITIONS ---
 
 // Create the router using the data router API.
-// Now, we simply pass the `routes` array imported from './routes'.
-const router = createBrowserRouter(routes);
+// We are adding the 'basename' option to the createBrowserRouter call to
+// correctly handle routing when deployed to a subdirectory on a web server,
+// such as GitHub Pages.
+const router = createBrowserRouter(routes, {
+  basename: '/rds-library',
+});
 
 // Main App component responsible for providing theming and routing.
 function App() {
