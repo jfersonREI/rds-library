@@ -29,7 +29,7 @@ const Header: React.FC = () => {
       <nav className="dark:bg-background/80 sticky top-0 isolate z-50 bg-white/60 py-3.5 backdrop-blur-md md:py-4">
         <div className="relative container m-auto flex flex-col justify-between gap-4 px-6 md:flex-row md:items-center md:gap-6">
           {/* Logo and Mobile Menu Toggle */}
-          <div className="flex items-center justify-between">
+          <div className="-mt-1 flex items-center justify-between">
             <Link to="/" aria-label="Go to homepage">
               <Logo />
             </Link>
