@@ -6,6 +6,7 @@ import viteImagemin from 'vite-plugin-imagemin';
 import path from 'path';
 
 export default defineConfig({
+  base: '/rds-library/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
