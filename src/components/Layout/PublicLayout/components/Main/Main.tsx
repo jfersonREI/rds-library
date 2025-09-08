@@ -1,7 +1,7 @@
 // PublicLayout/components/Main/Main.tsx
 // This component provides the semantic <main> tag and common styling for the public site's content.
 // It DOES NOT include Suspense. Suspense is handled in PublicLayout.tsx.
-import React, { memo, ReactNode } from 'react'; // NO Suspense import here
+import { memo, ReactNode } from 'react'; // NO Suspense import here
 
 interface MainProps {
   children?: ReactNode;
