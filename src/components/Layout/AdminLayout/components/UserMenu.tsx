@@ -16,10 +16,12 @@ import {
 // import Link from 'next/link';
 
 const UserMenu = memo(() => {
+  // Set the base URL from your Vite configuration here to ensure assets load correctly.
+  const BASE_URL = '/rds-library/';
   // You would typically get this from an authentication context or prop
   const userName = 'Admin User';
   const userEmail = 'admin.user.very.long.email.address@example.com'; // Example long email
-  const userAvatarSrc = '/avatars/01.png'; // Make sure this path exists in your public folder
+  const userAvatarSrc = `${BASE_URL}avatars/01.png`; // Make sure this path exists in your public folder
 
   return (
     <DropdownMenu>

@@ -1,6 +1,3 @@
-// ============================================
-// File: components/NotificationsButton.tsx
-// ============================================
 import React, { memo } from 'react';
 import { Bell } from 'lucide-react';
 // Assuming this path is correct, ensure ADMIN_CONFIG is defined or mocked for standalone use
@@ -36,11 +33,15 @@ interface Notification {
   read: boolean;
 }
 
+// Set the base URL from your Vite configuration here to ensure assets load correctly.
+const BASE_URL = '/rds-library/';
+
 // Sample notifications data (moved here from the previous App component)
 const initialNotifications: Notification[] = [
   {
     id: '1',
-    avatarSrc: '/avatars/02.png', // Placeholder image
+    // Corrected path to use the defined base URL
+    avatarSrc: `${BASE_URL}avatars/02.png`,
     avatarFallback: 'FR',
     title: 'Frances Reed',
     subtitle: 'Cake pie jelly jelly beans. Marz...',
@@ -49,7 +50,8 @@ const initialNotifications: Notification[] = [
   },
   {
     id: '2',
-    avatarSrc: '/avatars/03.png', // Placeholder image
+    // Corrected path
+    avatarSrc: `${BASE_URL}avatars/03.png`,
     avatarFallback: 'AG',
     title: 'Amelia Grier',
     subtitle: 'Toffee caramels jelly-o tart gu...',
@@ -58,7 +60,8 @@ const initialNotifications: Notification[] = [
   },
   {
     id: '3',
-    avatarSrc: '/avatars/04.png', // Placeholder image
+    // Corrected path
+    avatarSrc: `${BASE_URL}avatars/04.png`,
     avatarFallback: 'JW',
     title: 'Jackson Wyatt',
     subtitle: 'Soufflé soufflé caramels sweet...',
@@ -67,7 +70,8 @@ const initialNotifications: Notification[] = [
   },
   {
     id: '4',
-    avatarSrc: '/avatars/05.png', // Placeholder image
+    // Corrected path
+    avatarSrc: `${BASE_URL}avatars/05.png`,
     avatarFallback: 'VM',
     title: 'Vivian Marie',
     subtitle: 'Chupa chups candy canes cho...',
@@ -76,7 +80,8 @@ const initialNotifications: Notification[] = [
   },
   {
     id: '5',
-    avatarSrc: '/avatars/06.png', // Placeholder image
+    // Corrected path
+    avatarSrc: `${BASE_URL}avatars/06.png`,
     avatarFallback: 'MH',
     title: 'Marcus Hayes',
     subtitle: 'Cake pie jelly jelly beans. Marz...',
@@ -85,7 +90,8 @@ const initialNotifications: Notification[] = [
   },
   {
     id: '6',
-    avatarSrc: '/avatars/07.png', // Placeholder image
+    // Corrected path
+    avatarSrc: `${BASE_URL}avatars/07.png`,
     avatarFallback: 'SP',
     title: 'Stella Paige',
     subtitle: 'Toffee caramels jelly-o tart gu...',
