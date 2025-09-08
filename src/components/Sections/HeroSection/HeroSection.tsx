@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Typography } from '@/components/ui/typography';
 
 import HeroImage from '@/assets/home_hero-section.webp';
+import { Link } from 'react-router';
 
 const HeroSection = () => {
   return (
@@ -28,11 +29,11 @@ const HeroSection = () => {
               results. Let's tell your story together!
             </p>
           </div>
-          <a href="/contact">
-            <Button variant="default" size="lg" className="cursor-pointer">
+          <Link to="/contact">
+            <Button variant="default" size="lg">
               Contact us <ArrowRight />
             </Button>
-          </a>
+          </Link>
         </div>
         <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
           <img

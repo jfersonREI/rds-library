@@ -7,7 +7,9 @@ import { ReactNode } from 'react';
 export interface NavigationItem {
   title: string;
   url: string;
-  icon: LucideIcon;
+  icon?: LucideIcon | null; // Made optional for sub-items
+  collapsible?: boolean; // New: indicates if this item can be collapsed/expanded
+  items?: NavigationItem[]; // New: for nested navigation items
 }
 
 export interface NavigationGroup {

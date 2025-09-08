@@ -27,7 +27,7 @@ export const publicRoutes: AppRouteObject = {
         meta: {
           title: 'Home',
           description:
-            'Welcome to the REIApp - Your ultimate real estate solution!',
+            'Welcome to the REIApp - Your ultimate government solution!',
         },
       },
     } as AppRouteObject, // Type assertion for custom handle
@@ -38,7 +38,7 @@ export const publicRoutes: AppRouteObject = {
         meta: {
           title: 'About Us',
           description:
-            'Learn more about REIApp and our mission to simplify real estate.',
+            'Learn more about REIApp and our mission to simplify government.',
         },
       },
     } as AppRouteObject,

@@ -1,6 +1,6 @@
 // src/components/Layout/AdminLayoutWrapper.tsx
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router';
 import { AdminLayout } from '.';
 import PageHeadManager from '@/components/PageHeadManager';
 

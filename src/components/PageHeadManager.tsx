@@ -1,6 +1,6 @@
 // src/components/PageHeadManager.tsx
 import React, { useEffect } from 'react'; // Keep useEffect
-import { useMatches, UIMatch } from 'react-router-dom';
+import { useMatches, UIMatch } from 'react-router';
 import { useAppConfig } from '@/hooks/usePageMeta';
 
 interface RouteMeta {

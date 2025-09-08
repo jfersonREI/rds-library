@@ -5,7 +5,7 @@ import {
   LayoutDashboard,
   Users,
   Settings,
-  FileText,
+  FileText, // Add FileText for Reports icon
   BarChart3,
   Mail,
   Home,
@@ -44,6 +44,18 @@ export const NAVIGATION_CONFIG: NavigationConfig = {
       { title: 'Dashboard', url: '/admin', icon: LayoutDashboard },
       { title: 'Analytics', url: '/admin/analytics', icon: BarChart3 },
       { title: 'Calendar', url: '/admin/calendar', icon: Calendar },
+      {
+        // New Reports section
+        title: 'Reports',
+        url: '/admin/reports', // A base URL for reports, though sub-items will navigate
+        icon: FileText, // Icon for the main Reports entry
+        collapsible: true, // Mark as collapsible
+        items: [
+          // Sub-items for Reports
+          { title: 'Yearly', url: '/admin/reports/yearly', icon: null }, // No icon for sub-items
+          { title: 'Quarterly', url: '/admin/reports/quarterly', icon: null },
+        ],
+      },
     ],
   },
   management: {

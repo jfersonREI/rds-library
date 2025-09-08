@@ -2,6 +2,7 @@ import webDesignTrendsImg from '@/assets/blog_web-design-trends-in-2025.webp';
 import brandIdentityImg from '@/assets/blog_how-to-build-a-strong-brand-identity.webp';
 import storytellingImg from '@/assets/blog_power-of-storytelling-in-marketing.webp';
 import seoBasicsImg from '@/assets/blog_seo-basics-for-business-owners.webp';
+import { Link } from 'react-router';
 
 const BlogSection = () => {
   const blogPosts = [
@@ -72,7 +73,7 @@ const BlogSection = () => {
             role="list"
           >
             {blogPosts.map((post) => (
-              <a key={post.id} className="group block" href={post.href}>
+              <Link key={post.id} className="group block" to={post.href}>
                 <div className="flex flex-col gap-4 rounded-xl transition-all duration-200">
                   <div
                     style={{
@@ -132,7 +133,7 @@ const BlogSection = () => {
                     </p>
                   </div>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>

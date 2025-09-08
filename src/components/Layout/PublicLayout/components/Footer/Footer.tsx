@@ -3,6 +3,7 @@ import React from 'react';
 import Logo from '../Logo/Logo'; // Adjust path
 import { NavigationProps } from '../../types'; // Adjust path
 import { MAIN_NAV_LINKS, LEGAL_NAV_LINKS } from '../../config/externalConfig'; // Adjust path
+import { Link } from 'react-router';
 
 /**
  * @component FooterNavigation
@@ -23,14 +24,13 @@ const FooterNavigation: React.FC<NavigationProps> = ({
     aria-label={ariaLabel}
   >
     {links.map(({ href, label }) => (
-      // Using a simple <a> for links in the footer, as they might not always trigger full page navigation in SPAs
-      <a
+      <Link
         key={href + label} // Unique key for list items
-        href={href}
+        to={href}
         className="text-muted-foreground hover:text-foreground transition-colors"
       >
         {label}
-      </a>
+      </Link>
     ))}
   </nav>
 );
@@ -53,9 +53,9 @@ const Footer: React.FC = () => {
       <div className="container-padding-x container mx-auto flex flex-col gap-12 lg:gap-16">
         {/* Header Section (within footer) - typically for logo and main nav */}
         <div className="flex w-full flex-col items-center gap-12 text-center">
-          <a href="/" aria-label="Go to homepage">
+          <Link to="/" aria-label="Go to homepage">
             <Logo />
-          </a>
+          </Link>
           <FooterNavigation
             links={MAIN_NAV_LINKS}
             ariaLabel="Footer navigation"
@@ -69,14 +69,14 @@ const Footer: React.FC = () => {
         <div className="flex w-full flex-col-reverse items-center gap-12 lg:flex-row lg:justify-between lg:gap-6">
           <p className="text-muted-foreground text-center lg:text-left">
             <span>Copyright {currentYear} ©</span>{' '}
-            <a
+            <Link
               className="hover:underline"
-              href="https://reisystems.com"
+              to="https://reisystems.com"
               target="_blank" // Open in new tab
               rel="noopener noreferrer" // Security best practice for target="_blank"
             >
               reisystems.com
-            </a>
+            </Link>
           </p>
           <FooterNavigation links={LEGAL_NAV_LINKS} ariaLabel="Legal links" />
         </div>

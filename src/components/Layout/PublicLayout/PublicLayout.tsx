@@ -1,6 +1,6 @@
 // PublicLayout/PublicLayout.tsx
 import React, { Suspense } from 'react'; // Suspense is imported here
-import { Outlet, ScrollRestoration } from 'react-router-dom';
+import { Outlet, ScrollRestoration } from 'react-router';
 import PageHeadManager from '@/components/PageHeadManager';
 
 import Header from './components/Header/Header';

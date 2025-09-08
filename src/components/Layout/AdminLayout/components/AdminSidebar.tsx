@@ -2,7 +2,7 @@
 // File: components/AdminSidebar.tsx
 // ============================================
 import { memo, useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import {
   Sidebar,
   SidebarContent,
@@ -11,6 +11,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarRail,
+  // SidebarProvider is removed from here as it should wrap the root layout
 } from '@/components/ui/sidebar';
 import { ADMIN_CONFIG, NAVIGATION_CONFIG } from '../config/adminConfig';
 import { useActiveRoute } from '../hooks/useActiveRoute';
@@ -28,13 +29,14 @@ const AdminSidebar = memo(() => {
   );
 
   return (
+    // DO NOT wrap SidebarProvider here. It should wrap your main application layout.
     <Sidebar variant="inset" collapsible="icon">
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <Link to="/admin">
-                <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
+                <div className="bg-primary text-primary-foreground flex aspect-square size-8 items-center justify-center">
                   <branding.icon className="size-4" />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">

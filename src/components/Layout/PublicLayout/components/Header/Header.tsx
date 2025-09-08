@@ -6,6 +6,7 @@ import Logo from '../Logo/Logo'; // Adjust path
 import NavLink from '../NavLink/NavLink'; // Adjust path
 import { useNavigation } from '../../hooks/useNavigation'; // This hook for mobile menu logic
 import { MAIN_NAV_LINKS, CONTACT_NAV_ITEM } from '../../config/externalConfig'; // External config for navigation items
+import { Link } from 'react-router';
 
 /**
  * @component Header
@@ -29,13 +30,13 @@ const Header: React.FC = () => {
         <div className="relative container m-auto flex flex-col justify-between gap-4 px-6 md:flex-row md:items-center md:gap-6">
           {/* Logo and Mobile Menu Toggle */}
           <div className="flex items-center justify-between">
-            <a href="/" aria-label="Go to homepage">
+            <Link to="/" aria-label="Go to homepage">
               <Logo />
-            </a>
+            </Link>
             <Button
               variant="ghost"
               aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-              className="cursor-pointer md:hidden"
+              className="md:hidden"
               onClick={toggleMobileMenu}
             >
               {isMobileMenuOpen ? <X /> : <Menu />}

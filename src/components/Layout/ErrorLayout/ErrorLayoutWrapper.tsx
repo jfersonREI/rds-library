@@ -1,6 +1,6 @@
 // components/Layout/ErrorLayoutWrapper.tsx
 import React from 'react';
-import { Outlet, ScrollRestoration } from 'react-router-dom';
+import { Outlet, ScrollRestoration } from 'react-router';
 import PageHeadManager from '@/components/PageHeadManager';
 
 import Header from '../PublicLayout/components/Header/Header';

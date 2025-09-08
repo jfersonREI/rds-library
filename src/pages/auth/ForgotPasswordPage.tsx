@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
 // Import shadcn/ui components
 import { Input } from '@/components/ui/input';

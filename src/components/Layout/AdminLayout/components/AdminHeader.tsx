@@ -7,20 +7,21 @@ import { useActiveRoute } from '../hooks/useActiveRoute';
 import SearchComponent from './SearchComponent';
 import NotificationsButton from './NotificationsButton';
 import UserMenu from './UserMenu';
+import { ModeToggle } from '@/components/mode-toggle';
 
 const AdminHeader = memo(() => {
   const { pageTitle } = useActiveRoute();
 
   return (
-    <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
-      <SidebarTrigger className="-ml-1" />
-      <div className="bg-sidebar-border h-4 w-px" />
+    <header className="bg-accent text-accent-foreground sticky top-0 isolate z-9 flex h-16 shrink-0 items-center gap-2 border-b px-4 backdrop-blur-md">
+      <SidebarTrigger />
 
       <div className="flex flex-1 items-center justify-between">
         <h1 className="text-lg font-semibold">{pageTitle}</h1>
 
         <div className="flex items-center gap-4">
           <SearchComponent />
+          <ModeToggle />
           <NotificationsButton />
           <UserMenu />
         </div>

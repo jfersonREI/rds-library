@@ -1,9 +1,6 @@
 // src/App.tsx
-import {
-  createBrowserRouter,
-  RouterProvider,
-  type RouteObject,
-} from 'react-router-dom';
+import { createBrowserRouter, type RouteObject } from 'react-router';
+import { RouterProvider } from 'react-router/dom';
 import { ThemeProvider } from '@/components/theme-provider';
 
 // Import the combined routes from your new routes directory

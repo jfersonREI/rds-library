@@ -3,6 +3,7 @@ import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Button } from '@/components/ui/button';
 
 import homeFeatImg from '@/assets/home_feature-section_image.png';
+import { Link } from 'react-router';
 
 const AboutSection = () => {
   return (
@@ -25,12 +26,12 @@ const AboutSection = () => {
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <a href="/#contact">
-              <Button className="inline-flex cursor-pointer items-center gap-2">
+            <Link to="/#contact">
+              <Button className="inline-flex items-center gap-2">
                 Contact us
                 <ArrowRight className="h-4 w-4" />
               </Button>
-            </a>
+            </Link>
           </div>
         </div>
         <div className="w-full flex-1">

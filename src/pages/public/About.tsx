@@ -194,21 +194,21 @@ export default function About() {
                     <ToggleGroupItem
                       value="90d"
                       aria-label="Last 3 months"
-                      className="border-color flex-auto cursor-pointer px-4 transition-all"
+                      className="border-color flex-auto px-4 transition-all"
                     >
                       Last 3 months
                     </ToggleGroupItem>
                     <ToggleGroupItem
                       value="30d"
                       aria-label="Last 30 days"
-                      className="border-color flex-auto cursor-pointer px-4 transition-all"
+                      className="border-color flex-auto px-4 transition-all"
                     >
                       Last 30 days
                     </ToggleGroupItem>
                     <ToggleGroupItem
                       value="7d"
                       aria-label="Last 7 days"
-                      className="border-color flex-auto cursor-pointer px-4 transition-all"
+                      className="border-color flex-auto px-4 transition-all"
                     >
                       Last 7 days
                     </ToggleGroupItem>

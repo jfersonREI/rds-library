@@ -2,9 +2,6 @@
 import React from 'react'; // React is still needed for React.lazy
 import { AppRouteObject } from '../App'; // Import the AppRouteObject type from App.tsx
 
-// Removed: import Spinner from '@/components/Layout/Spinner/Spinner';
-// Removed: import { Suspense } from 'react'; // Suspense is now part of defaultErrorElement
-
 import { AdminLayoutWrapper } from '@/components/Layout/AdminLayout/AdminLayoutWrapper';
 // Import the shared default error element from the renamed file
 import { defaultErrorElement } from './error.routes';
@@ -35,6 +32,10 @@ const AdminSettingsPage = React.lazy(
   () => import('@/pages/admin/SettingsPage')
 );
 const AdminProfilePage = React.lazy(() => import('@/pages/admin/ProfilePage'));
+// Keep AdminProductDetailsPage for the GSA route as per your request
+const AdminProductDetailsPage = React.lazy(
+  () => import('@/pages/admin/ProductDetailsPage')
+);
 
 /**
  * Defines the admin section routes for the application.
@@ -68,13 +69,37 @@ export const adminRoutes: AppRouteObject = {
     } as AppRouteObject,
     {
       path: 'products', // Full path will be /admin/products
-      element: <AdminProductsPage />,
+      // Removed the direct element from the parent 'products' route.
+      // The 'index: true' child will now handle the default '/admin/products' path.
       handle: {
         meta: {
           title: 'Products',
           description: 'Manage products in your REIApp.',
         },
       },
+      // Nested children for products, including the new GSA page
+      children: [
+        {
+          index: true, // This makes AdminProductsPage the default for /admin/products
+          element: <AdminProductsPage />,
+          handle: {
+            meta: {
+              title: 'Products',
+              description: 'Manage products in your REIApp.',
+            },
+          },
+        } as AppRouteObject,
+        {
+          path: 'gsa', // Full path will be /admin/products/gsa
+          element: <AdminProductDetailsPage />, // Corrected to use AdminProductDetailsPage
+          handle: {
+            meta: {
+              title: 'GSA Products',
+              description: 'Manage GSA specific products.',
+            },
+          },
+        } as AppRouteObject,
+      ],
     } as AppRouteObject,
     {
       path: 'orders', // Full path will be /admin/orders

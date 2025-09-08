@@ -21,11 +21,11 @@ interface AdminMainProps {
  */
 const AdminMain = memo(({ children }: AdminMainProps) => {
   return (
-    <main className="flex-1 overflow-y-auto p-6">
-      <div className="mx-auto max-w-7xl">
+    <main className="bg-accent color-acccent-foreground flex-1 overflow-y-auto p-6 md:p-8">
+      <div className="mx-auto max-w-full">
         {/* Suspense boundary for lazy-loaded pages within the Admin layout */}
         <Suspense fallback={<Spinner fullScreen size="default" />}>
-          {children}{' '}
+          {children}
           {/* This is where the lazy-loaded admin page components are rendered */}
         </Suspense>
       </div>

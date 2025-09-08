@@ -50,7 +50,7 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({
 
             {/* Admin Main Content Area: Renders the current admin page */}
             <AdminMain>
-              {children}{' '}
+              {children}
               {/* THIS IS WHERE THE Outlet (from AdminLayoutWrapper) GETS PASSED DOWN */}
             </AdminMain>
 

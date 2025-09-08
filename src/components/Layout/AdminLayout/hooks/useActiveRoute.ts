@@ -1,7 +1,7 @@
 // ============================================
 // File: hooks/useActiveRoute.ts
 // ============================================
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router';
 import { useMemo } from 'react';
 import { NAVIGATION_CONFIG } from '../config/adminConfig';
 
