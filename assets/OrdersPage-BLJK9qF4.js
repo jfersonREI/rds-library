@@ -1,1 +1,0 @@
-import{j as e}from"./index-DGNwjeo_.js";const s=()=>e.jsxs("div",{className:"p-8 text-center text-xl font-semibold",children:[e.jsx("h2",{children:"Order Management"}),e.jsx("p",{children:"Review and process customer orders."})]});export{s as default};
