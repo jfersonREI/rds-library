@@ -1,1 +1,0 @@
-import{j as e}from"./index-DAXt4lXm.js";const s=()=>e.jsxs("div",{className:"p-8 text-center text-xl font-semibold",children:[e.jsx("h2",{children:"Calendar"}),e.jsx("p",{children:"Schedule and view events."})]});export{s as default};

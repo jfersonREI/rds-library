@@ -1,0 +1,1 @@
+import{j as t}from"./index-CUwHNGvA.js";const s=()=>t.jsxs("div",{className:"p-8 text-center text-xl font-semibold",children:[t.jsx("h2",{children:"Settings"}),t.jsx("p",{children:"Configure application settings."})]});export{s as default};

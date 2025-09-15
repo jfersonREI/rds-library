@@ -1,0 +1,1 @@
+import{j as a,am as e,o as r,an as o,ao as t,O as x,ap as j,M as n,aq as i}from"./index-CUwHNGvA.js";const d=({children:s})=>a.jsxs(a.Fragment,{children:[a.jsx(e,{}),a.jsx(r,{}),a.jsx(o,{}),a.jsxs(t,{children:[s||a.jsx(x,{})," "]}),a.jsx(j,{}),a.jsx("span",{className:"fixed right-4 bottom-4 isolate z-50",children:a.jsx(n,{})}),a.jsx(i,{})]});export{d as default};
