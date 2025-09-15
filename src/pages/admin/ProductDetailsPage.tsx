@@ -18,27 +18,33 @@ import {
 } from '@/components/ui/breadcrumb';
 import { Link } from 'react-router';
 
+// Import BASE_URL from your centralized utility file
+import { BASE_URL } from '@/lib/utils';
+
 /**
  * @component ProductsDetailsPage
  * @description Placeholder component for the Admin Product Details page.
  */
 
 const ProductDetailsPage: React.FC = () => {
+  // If you want to use local images for team members, you would do it here
   const teamMembers = [
     {
       id: 1,
       name: 'Marcia Rice',
       role: 'Software Developer',
       company: 'Product Name',
-      avatar: 'https://placehold.co/40x40/FFD700/000000?text=MR', // Placeholder for Marcia Rice
+      // Corrected avatar path to use BASE_URL and the path relative to project root
+      avatar: `${BASE_URL}src/assets/avatars/01.png`,
       reviewDue: '12/12/2023',
     },
+
     {
       id: 2,
       name: 'Reyes Hessel',
       role: 'Business Analyst',
       company: 'Product Name',
-      avatar: 'https://placehold.co/40x40/87CEEB/000000?text=RH', // Placeholder for Reyes Hessel
+      avatar: `${BASE_URL}src/assets/avatars/02.png`,
       reviewDue: '12/12/2023',
     },
     {
@@ -46,10 +52,13 @@ const ProductDetailsPage: React.FC = () => {
       name: 'Celia Prohaska',
       role: 'UX Manager',
       company: 'Product Name',
-      avatar: 'https://placehold.co/40x40/FF6347/000000?text=CP', // Placeholder for Celia Prohaska
+      avatar: `${BASE_URL}src/assets/avatars/03.png`,
       reviewDue: '12/12/2023',
     },
   ];
+
+  // Path to the GSA logo, assuming it's in src/assets/products
+  const gsaLogoPath = `${BASE_URL}src/assets/products/product-gsa.png`;
 
   return (
     <>
@@ -57,21 +66,18 @@ const ProductDetailsPage: React.FC = () => {
       <Breadcrumb className="mb-4">
         <BreadcrumbList>
           <BreadcrumbItem>
-            {/* Use asChild with Link for client-side navigation */}
             <BreadcrumbLink asChild>
               <Link to="/admin">Home</Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            {/* Use asChild with Link for client-side navigation */}
             <BreadcrumbLink asChild>
               <Link to="/admin/products">Products</Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            {/* BreadcrumbPage is for the current, non-clickable page */}
             <BreadcrumbPage>Product Name</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
@@ -88,7 +94,8 @@ const ProductDetailsPage: React.FC = () => {
           </div>
           {/* Placeholder Logo */}
           <div className="flex h-20 w-20 flex-shrink-0 items-center justify-center rounded-lg bg-gray-100">
-            <img src="/products/product-gsa.png" alt="GSA" />
+            {/* Corrected the image src to use the BASE_URL */}
+            <img src={gsaLogoPath} alt="GSA" />
           </div>
         </div>
       </div>
@@ -125,7 +132,6 @@ const ProductDetailsPage: React.FC = () => {
               <CardTitle className="text-xl font-semibold">
                 Team members
               </CardTitle>
-              {/* Removed Export button and DropdownMenu */}
             </CardHeader>
             <CardContent className="pt-4">
               <div className="space-y-4">

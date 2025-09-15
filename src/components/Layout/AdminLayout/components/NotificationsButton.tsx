@@ -12,7 +12,7 @@ import {
   DropdownMenuSeparator,
 } from '@/components/ui/dropdown-menu';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { cn } from '@/lib/utils'; // Utility for conditional classnames
+import { cn, BASE_URL } from '@/lib/utils'; // Utility for conditional classnames
 import { Badge } from '@/components/ui/badge'; // Import the Badge component
 
 // Mock ADMIN_CONFIG for demonstration purposes if not provided by the user
@@ -33,15 +33,12 @@ interface Notification {
   read: boolean;
 }
 
-// Set the base URL from your Vite configuration here to ensure assets load correctly.
-const BASE_URL = '/rds-library/';
-
 // Sample notifications data (moved here from the previous App component)
 const initialNotifications: Notification[] = [
   {
     id: '1',
     // Corrected path to use the defined base URL
-    avatarSrc: `${BASE_URL}avatars/02.png`,
+    avatarSrc: `${BASE_URL}src/assets/avatars/02.png`,
     avatarFallback: 'FR',
     title: 'Frances Reed',
     subtitle: 'Cake pie jelly jelly beans. Marz...',
@@ -51,7 +48,7 @@ const initialNotifications: Notification[] = [
   {
     id: '2',
     // Corrected path
-    avatarSrc: `${BASE_URL}avatars/03.png`,
+    avatarSrc: `${BASE_URL}src/assets/avatars/03.png`,
     avatarFallback: 'AG',
     title: 'Amelia Grier',
     subtitle: 'Toffee caramels jelly-o tart gu...',
@@ -61,7 +58,7 @@ const initialNotifications: Notification[] = [
   {
     id: '3',
     // Corrected path
-    avatarSrc: `${BASE_URL}avatars/04.png`,
+    avatarSrc: `${BASE_URL}src/assets/avatars/04.png`,
     avatarFallback: 'JW',
     title: 'Jackson Wyatt',
     subtitle: 'Soufflé soufflé caramels sweet...',
@@ -71,7 +68,7 @@ const initialNotifications: Notification[] = [
   {
     id: '4',
     // Corrected path
-    avatarSrc: `${BASE_URL}avatars/05.png`,
+    avatarSrc: `${BASE_URL}src/assets/avatars/05.png`,
     avatarFallback: 'VM',
     title: 'Vivian Marie',
     subtitle: 'Chupa chups candy canes cho...',
@@ -81,7 +78,7 @@ const initialNotifications: Notification[] = [
   {
     id: '5',
     // Corrected path
-    avatarSrc: `${BASE_URL}avatars/06.png`,
+    avatarSrc: `${BASE_URL}src/assets/avatars/06.png`,
     avatarFallback: 'MH',
     title: 'Marcus Hayes',
     subtitle: 'Cake pie jelly jelly beans. Marz...',
@@ -91,7 +88,7 @@ const initialNotifications: Notification[] = [
   {
     id: '6',
     // Corrected path
-    avatarSrc: `${BASE_URL}avatars/07.png`,
+    avatarSrc: `${BASE_URL}src/assets/avatars/07.png`,
     avatarFallback: 'SP',
     title: 'Stella Paige',
     subtitle: 'Toffee caramels jelly-o tart gu...',

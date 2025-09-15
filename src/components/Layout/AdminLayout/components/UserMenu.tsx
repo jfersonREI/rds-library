@@ -12,16 +12,13 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
-// If you are using Next.js, you would import Link like this:
-// import Link from 'next/link';
+import { BASE_URL } from '@/lib/utils';
 
 const UserMenu = memo(() => {
-  // Set the base URL from your Vite configuration here to ensure assets load correctly.
-  const BASE_URL = '/rds-library/';
   // You would typically get this from an authentication context or prop
   const userName = 'Admin User';
   const userEmail = 'admin.user.very.long.email.address@example.com'; // Example long email
-  const userAvatarSrc = `${BASE_URL}avatars/01.png`; // Make sure this path exists in your public folder
+  const userAvatarSrc = `${BASE_URL}src/assets/avatars/01.png`; // Make sure this path exists in your public folder
 
   return (
     <DropdownMenu>

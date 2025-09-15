@@ -11,10 +11,7 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Link } from 'react-router'; // Import the Link component
 
-/**
- * @component ProductsPage
- * @description Placeholder component for the Admin Products page.
- */
+import { BASE_URL } from '@/lib/utils';
 
 const products = [
   {
@@ -106,7 +103,7 @@ const ProductsPage: React.FC = () => {
                 <CardHeader className="flex flex-col items-start pb-0">
                   <Avatar className="h-18 w-18 rounded-none">
                     <AvatarImage
-                      src={product.logo}
+                      src={`${BASE_URL}src/assets/${product.logo}`}
                       alt={`${product.name} logo`}
                       className="rounded-none"
                     />
