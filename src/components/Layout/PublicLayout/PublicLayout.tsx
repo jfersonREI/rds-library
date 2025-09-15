@@ -8,7 +8,7 @@ import Footer from './components/Footer/Footer';
 import Main from './components/Main/Main'; // The Main component for PublicLayout (NO Suspense inside it)
 import { ModeToggle } from '@/components/mode-toggle';
 import SkipNav from '@/components/SkipNav';
-import Spinner from '../Spinner/Spinner';
+import Spinner from '../Spinner';
 
 /**
  * @component PublicLayout

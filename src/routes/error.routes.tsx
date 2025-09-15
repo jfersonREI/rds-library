@@ -1,7 +1,7 @@
 // src/routes/error.routes.tsx
 import React, { Suspense } from 'react';
 
-import Spinner from '@/components/Layout/Spinner/Spinner';
+import Spinner from '@/components/Layout/Spinner';
 
 // Lazy-load the error-related components once here
 const ErrorLayoutWrapper = React.lazy(

@@ -3,7 +3,7 @@ import React from 'react';
 import { DataTable } from '@/components/ui/data-table';
 import { dashboardColumns } from './dashboard-components/dashboard-columns';
 import { dashboardData } from './dashboard-components/dashboard-data';
-import MetricCard from '@/components/MetricCard/MetricCard';
+import MetricCard from '@/components/MetricCard';
 
 import { Target, DollarSign, TrendingUp, BarChart3 } from 'lucide-react';
 import { Button } from '@/components/ui/button';

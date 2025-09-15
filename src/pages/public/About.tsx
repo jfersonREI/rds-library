@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { Typography } from '@/components/ui/typography';
-import MetricCard from '@/components/MetricCard/MetricCard';
+import MetricCard from '@/components/MetricCard';
 
 import {
   Area,

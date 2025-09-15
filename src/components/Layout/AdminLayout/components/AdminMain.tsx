@@ -3,7 +3,7 @@
 // It DOES include a Suspense boundary around its children, as it's the direct parent
 // rendering the lazy-loaded admin pages via the AdminLayout's children prop.
 import { memo, ReactNode, Suspense } from 'react'; // Suspense is imported here
-import Spinner from '../../Spinner/Spinner';
+import Spinner from '../../Spinner';
 
 interface AdminMainProps {
   children?: ReactNode;

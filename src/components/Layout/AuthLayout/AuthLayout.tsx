@@ -1,7 +1,7 @@
 // src/components/Layout/AuthLayout/AuthLayout.tsx
 import React, { Suspense } from 'react';
 import { Outlet } from 'react-router';
-import Spinner from '../Spinner/Spinner';
+import Spinner from '../Spinner';
 import PageHeadManager from '@/components/PageHeadManager';
 import {
   Card,
