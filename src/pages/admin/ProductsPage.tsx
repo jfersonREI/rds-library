@@ -9,9 +9,24 @@ import {
   CardFooter,
 } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Link } from 'react-router'; // Import the Link component
+import { Link } from 'react-router';
 
-import { BASE_URL } from '@/lib/utils';
+// 1. Use import.meta.glob with the corrected syntax and explicit type
+const productLogos: Record<string, string> = import.meta.glob(
+  '@/assets/products/*.png',
+  { eager: true, query: '?url', import: 'default' }
+);
+
+/**
+ * Resolves the URL for a product logo image based on its filename.
+ * @param filename The name of the image file (e.g., 'product-gsa.png').
+ * @returns The resolved URL or undefined if not found.
+ */
+function getProductLogo(filename: string): string | undefined {
+  // Vite resolves the alias, so the key in the imported object starts with /src/
+  const path = `/src/assets/products/${filename}`;
+  return productLogos[path];
+}
 
 const products = [
   {
@@ -20,8 +35,8 @@ const products = [
     location: 'Washington, D.C.',
     avatarFallback: 'GSA',
     teamMembers: 12,
-    logo: '/products/product-gsa.png', // Placeholder logo
-    path: '/admin/products/gsa', // Stored path
+    logo: 'product-gsa.png', // Just the filename
+    path: '/admin/products/gsa',
   },
   {
     name: 'FDA',
@@ -29,8 +44,8 @@ const products = [
     location: 'Silver Spring, MD',
     avatarFallback: 'FDA',
     teamMembers: 12,
-    logo: '/products/product-fda.png', // Placeholder logo
-    path: '/admin/products/fda', // Stored path
+    logo: 'product-fda.png',
+    path: '/admin/products/fda',
   },
   {
     name: 'Health Resources and Services Administration (HRSA)',
@@ -38,8 +53,8 @@ const products = [
     location: 'Rockville, MD',
     avatarFallback: 'HRSA',
     teamMembers: 12,
-    logo: '/products/product-hrsa.png', // Placeholder logo
-    path: '/admin/products/hrsa', // Stored path
+    logo: 'product-hrsa.png',
+    path: '/admin/products/hrsa',
   },
   {
     name: 'U.S. Department of Homeland Security (DHS)',
@@ -47,8 +62,8 @@ const products = [
     location: 'Washington, D.C.',
     avatarFallback: 'DHS',
     teamMembers: 12,
-    logo: '/products/product-dhs.png', // Placeholder logo
-    path: '/admin/products/dhs', // Stored path
+    logo: 'product-dhs.png',
+    path: '/admin/products/dhs',
   },
   {
     name: 'NASA',
@@ -56,8 +71,8 @@ const products = [
     location: 'Washington, D.C.',
     avatarFallback: 'NASA',
     teamMembers: 12,
-    logo: '/products/product-nasa.png', // Placeholder logo
-    path: '/admin/products/nasa', // Stored path
+    logo: 'product-nasa.png',
+    path: '/admin/products/nasa',
   },
   {
     name: 'Administration for Children and Families (ACF)',
@@ -65,8 +80,8 @@ const products = [
     location: 'Washington, D.C.',
     avatarFallback: 'ACF',
     teamMembers: 12,
-    logo: '/products/product-acf.png', // Placeholder logo
-    path: '/admin/products/acf', // Stored path
+    logo: 'product-acf.png',
+    path: '/admin/products/acf',
   },
   {
     name: 'USPTO',
@@ -74,8 +89,8 @@ const products = [
     location: 'Washington, D.C.',
     avatarFallback: 'USPTO',
     teamMembers: 12,
-    logo: '/products/product-uspto.png', // Placeholder logo
-    path: '/admin/products/uspto', // Stored path
+    logo: 'product-uspto.png',
+    path: '/admin/products/uspto',
   },
   {
     name: 'U.S. Department of Justice (DOJ)',
@@ -83,8 +98,8 @@ const products = [
     location: 'Washington, D.C.',
     avatarFallback: 'DOJ',
     teamMembers: 12,
-    logo: '/products/product-doj.png', // Placeholder logo
-    path: '/admin/products/doj', // Stored path
+    logo: 'product-doj.png',
+    path: '/admin/products/doj',
   },
 ];
 
@@ -103,7 +118,7 @@ const ProductsPage: React.FC = () => {
                 <CardHeader className="flex flex-col items-start pb-0">
                   <Avatar className="h-18 w-18 rounded-none">
                     <AvatarImage
-                      src={`${BASE_URL}src/assets/${product.logo}`}
+                      src={getProductLogo(product.logo)}
                       alt={`${product.name} logo`}
                       className="rounded-none"
                     />

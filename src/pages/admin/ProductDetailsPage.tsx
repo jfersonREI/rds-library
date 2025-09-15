@@ -1,3 +1,4 @@
+// src/pages/admin/ProductDetailsPage.tsx
 import {
   Card,
   CardContent,
@@ -18,24 +19,34 @@ import {
 } from '@/components/ui/breadcrumb';
 import { Link } from 'react-router';
 
-// Import BASE_URL from your centralized utility file
-import { BASE_URL } from '@/lib/utils';
+// 1. Explicitly import the static GSA logo.
+import gsaLogo from '@/assets/products/product-gsa.png';
+
+// 2. Use import.meta.glob with the corrected syntax and explicit type for team member avatars.
+const avatarModules: Record<string, string> = import.meta.glob(
+  '@/assets/avatars/*.png',
+  { eager: true, query: '?url', import: 'default' }
+);
 
 /**
- * @component ProductsDetailsPage
- * @description Placeholder component for the Admin Product Details page.
+ * Resolves the URL for an avatar image based on its filename.
+ * @param filename The name of the image file (e.g., '01.png').
+ * @returns The resolved URL or undefined if not found.
  */
+function resolveAvatarPath(filename: string): string | undefined {
+  const fullPathKey = `/src/assets/avatars/${filename}`;
+  return avatarModules[fullPathKey];
+}
 
 const ProductDetailsPage: React.FC = () => {
-  // If you want to use local images for team members, you would do it here
   const teamMembers = [
     {
       id: 1,
       name: 'Marcia Rice',
       role: 'Software Developer',
       company: 'Product Name',
-      // Corrected avatar path to use BASE_URL and the path relative to project root
-      avatar: `${BASE_URL}src/assets/avatars/01.png`,
+      // Corrected avatar path to use the helper function
+      avatar: resolveAvatarPath('01.png'),
       reviewDue: '12/12/2023',
     },
 
@@ -44,7 +55,7 @@ const ProductDetailsPage: React.FC = () => {
       name: 'Reyes Hessel',
       role: 'Business Analyst',
       company: 'Product Name',
-      avatar: `${BASE_URL}src/assets/avatars/02.png`,
+      avatar: resolveAvatarPath('02.png'),
       reviewDue: '12/12/2023',
     },
     {
@@ -52,13 +63,10 @@ const ProductDetailsPage: React.FC = () => {
       name: 'Celia Prohaska',
       role: 'UX Manager',
       company: 'Product Name',
-      avatar: `${BASE_URL}src/assets/avatars/03.png`,
+      avatar: resolveAvatarPath('03.png'),
       reviewDue: '12/12/2023',
     },
   ];
-
-  // Path to the GSA logo, assuming it's in src/assets/products
-  const gsaLogoPath = `${BASE_URL}src/assets/products/product-gsa.png`;
 
   return (
     <>
@@ -94,8 +102,8 @@ const ProductDetailsPage: React.FC = () => {
           </div>
           {/* Placeholder Logo */}
           <div className="flex h-20 w-20 flex-shrink-0 items-center justify-center rounded-lg bg-gray-100">
-            {/* Corrected the image src to use the BASE_URL */}
-            <img src={gsaLogoPath} alt="GSA" />
+            {/* 3. Use the explicitly imported logo */}
+            <img src={gsaLogo} alt="GSA" />
           </div>
         </div>
       </div>

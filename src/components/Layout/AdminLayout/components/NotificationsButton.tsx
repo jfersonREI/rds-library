@@ -1,7 +1,5 @@
 import React, { memo } from 'react';
 import { Bell } from 'lucide-react';
-// Assuming this path is correct, ensure ADMIN_CONFIG is defined or mocked for standalone use
-// import { ADMIN_CONFIG } from '../config/adminConfig';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -12,20 +10,37 @@ import {
   DropdownMenuSeparator,
 } from '@/components/ui/dropdown-menu';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { cn, BASE_URL } from '@/lib/utils'; // Utility for conditional classnames
-import { Badge } from '@/components/ui/badge'; // Import the Badge component
+import { cn } from '@/lib/utils';
+import { Badge } from '@/components/ui/badge';
 
-// Mock ADMIN_CONFIG for demonstration purposes if not provided by the user
+// 1. Updated glob-import using the new `query` syntax
+//    Also, explicitly define the type of the imported modules as a Record
+const avatarModules: Record<string, string> = import.meta.glob(
+  '@/assets/avatars/*.png',
+  { eager: true, query: '?url', import: 'default' }
+);
+
+/**
+ * Resolves the URL for an avatar image based on its filename.
+ * @param filename The name of the image file (e.g., '02.png').
+ * @returns The resolved URL or undefined if not found.
+ */
+function resolveAvatarPath(filename: string): string | undefined {
+  const fullPathKey = `/src/assets/avatars/${filename}`;
+  // The imported module now contains the default export.
+  // The Record type ensures the lookup result is `string | undefined`.
+  return avatarModules[fullPathKey];
+}
+
 const ADMIN_CONFIG = {
   notifications: {
     enabled: true,
   },
 };
 
-// Define a type for a single notification
 interface Notification {
   id: string;
-  avatarSrc: string;
+  avatarSrc?: string;
   avatarFallback: string;
   title: string;
   subtitle: string;
@@ -33,12 +48,10 @@ interface Notification {
   read: boolean;
 }
 
-// Sample notifications data (moved here from the previous App component)
 const initialNotifications: Notification[] = [
   {
     id: '1',
-    // Corrected path to use the defined base URL
-    avatarSrc: `${BASE_URL}src/assets/avatars/02.png`,
+    avatarSrc: resolveAvatarPath('02.png'),
     avatarFallback: 'FR',
     title: 'Frances Reed',
     subtitle: 'Cake pie jelly jelly beans. Marz...',
@@ -47,8 +60,7 @@ const initialNotifications: Notification[] = [
   },
   {
     id: '2',
-    // Corrected path
-    avatarSrc: `${BASE_URL}src/assets/avatars/03.png`,
+    avatarSrc: resolveAvatarPath('03.png'),
     avatarFallback: 'AG',
     title: 'Amelia Grier',
     subtitle: 'Toffee caramels jelly-o tart gu...',
@@ -57,8 +69,7 @@ const initialNotifications: Notification[] = [
   },
   {
     id: '3',
-    // Corrected path
-    avatarSrc: `${BASE_URL}src/assets/avatars/04.png`,
+    avatarSrc: resolveAvatarPath('04.png'),
     avatarFallback: 'JW',
     title: 'Jackson Wyatt',
     subtitle: 'Soufflé soufflé caramels sweet...',
@@ -67,8 +78,7 @@ const initialNotifications: Notification[] = [
   },
   {
     id: '4',
-    // Corrected path
-    avatarSrc: `${BASE_URL}src/assets/avatars/05.png`,
+    avatarSrc: resolveAvatarPath('05.png'),
     avatarFallback: 'VM',
     title: 'Vivian Marie',
     subtitle: 'Chupa chups candy canes cho...',
@@ -77,8 +87,7 @@ const initialNotifications: Notification[] = [
   },
   {
     id: '5',
-    // Corrected path
-    avatarSrc: `${BASE_URL}src/assets/avatars/06.png`,
+    avatarSrc: resolveAvatarPath('06.png'),
     avatarFallback: 'MH',
     title: 'Marcus Hayes',
     subtitle: 'Cake pie jelly jelly beans. Marz...',
@@ -87,8 +96,7 @@ const initialNotifications: Notification[] = [
   },
   {
     id: '6',
-    // Corrected path
-    avatarSrc: `${BASE_URL}src/assets/avatars/07.png`,
+    avatarSrc: resolveAvatarPath('07.png'),
     avatarFallback: 'SP',
     title: 'Stella Paige',
     subtitle: 'Toffee caramels jelly-o tart gu...',
@@ -98,7 +106,6 @@ const initialNotifications: Notification[] = [
 ];
 
 const NotificationsButton = memo(() => {
-  // Check if notifications are enabled based on ADMIN_CONFIG
   if (!ADMIN_CONFIG.notifications.enabled) return null;
 
   const [allNotifications, setAllNotifications] =
@@ -107,7 +114,6 @@ const NotificationsButton = memo(() => {
     initialNotifications.filter((n) => !n.read).length
   );
 
-  // Function to handle marking all notifications as read
   const handleMarkAllAsRead = () => {
     const updatedNotifications = allNotifications.map((n) => ({
       ...n,
@@ -117,14 +123,12 @@ const NotificationsButton = memo(() => {
     setUnreadCount(0);
   };
 
-  // Function to handle clicking on a notification (marks it as read)
   const handleNotificationClick = (id: string) => {
     const updatedNotifications = allNotifications.map((n) =>
       n.id === id ? { ...n, read: true } : n
     );
     setAllNotifications(updatedNotifications);
     setUnreadCount(updatedNotifications.filter((n) => !n.read).length);
-    // In a real app, you might navigate or show details here
     console.log(`Notification ${id} clicked!`);
   };
 
@@ -139,10 +143,9 @@ const NotificationsButton = memo(() => {
         >
           <Bell className="h-4 w-4" />
           {unreadCount > 0 && (
-            // Replaced the custom span with shadcn/ui Badge component
             <Badge
-              variant="destructive" // Use the destructive variant for a red badge
-              className="absolute -top-1 -right-1 h-5 min-w-[20px] justify-center rounded-full p-0 text-xs font-bold" // Adjust padding and size
+              variant="destructive"
+              className="absolute -top-1 -right-1 h-5 min-w-[20px] justify-center rounded-full p-0 text-xs font-bold"
               aria-label={`You have ${unreadCount} unread notifications`}
             >
               {unreadCount}
@@ -187,7 +190,6 @@ const NotificationsButton = memo(() => {
                     onError={(
                       e: React.SyntheticEvent<HTMLImageElement, Event>
                     ) => {
-                      // Fallback to a placeholder if the image fails to load
                       e.currentTarget.src = `https://placehold.co/40x40/cccccc/000000?text=${notification.avatarFallback}`;
                     }}
                   />
@@ -208,7 +210,6 @@ const NotificationsButton = memo(() => {
                     </div>
                   </div>
                 </div>
-                {/* Always render the indicator space, conditionally apply background */}
                 <div className="ml-2 flex h-2 w-2 flex-shrink-0 items-center justify-center">
                   <span
                     className={cn(

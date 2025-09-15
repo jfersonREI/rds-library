@@ -12,13 +12,14 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
-import { BASE_URL } from '@/lib/utils';
+// 1. Explicitly import the image. The alias '@/...' is resolved at build time.
+import userAvatarSrc from '@/assets/avatars/01.png';
 
 const UserMenu = memo(() => {
   // You would typically get this from an authentication context or prop
   const userName = 'Admin User';
   const userEmail = 'admin.user.very.long.email.address@example.com'; // Example long email
-  const userAvatarSrc = `${BASE_URL}src/assets/avatars/01.png`; // Make sure this path exists in your public folder
+  // 2. The `userAvatarSrc` variable is now automatically the correct, processed URL.
 
   return (
     <DropdownMenu>
@@ -28,6 +29,7 @@ const UserMenu = memo(() => {
           aria-label="User menu"
         >
           <Avatar>
+            {/* Use the imported variable directly */}
             <AvatarImage src={userAvatarSrc} alt="User Avatar" />
             <AvatarFallback>AU</AvatarFallback> {/* Initials if no image */}
           </Avatar>
@@ -37,6 +39,7 @@ const UserMenu = memo(() => {
         {/* New section for Avatar, Username, and Email */}
         <div className="flex items-center gap-2 p-3">
           <Avatar className="h-9 w-9">
+            {/* Use the imported variable directly */}
             <AvatarImage src={userAvatarSrc} alt="User Avatar" />
             <AvatarFallback>AU</AvatarFallback>
           </Avatar>
