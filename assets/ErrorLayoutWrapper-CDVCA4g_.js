@@ -1,0 +1,1 @@
+import{j as a,ag as e,o as r,ah as o,ai as t,O as x,aj as j,M as i,ak as n}from"./index-DAXt4lXm.js";const d=({children:s})=>a.jsxs(a.Fragment,{children:[a.jsx(e,{}),a.jsx(r,{}),a.jsx(o,{}),a.jsxs(t,{children:[s||a.jsx(x,{})," "]}),a.jsx(j,{}),a.jsx("span",{className:"fixed right-4 bottom-4 isolate z-50",children:a.jsx(i,{})}),a.jsx(n,{})]});export{d as default};

@@ -1,1 +1,0 @@
-import{j as e}from"./index-BcUNOk2U.js";const s=()=>e.jsxs("div",{className:"p-8 text-center text-xl font-semibold",children:[e.jsx("h2",{children:"User Profile"}),e.jsx("p",{children:"View and edit user profile details."})]});export{s as default};

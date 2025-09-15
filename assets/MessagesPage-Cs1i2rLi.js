@@ -1,0 +1,1 @@
+import{j as e}from"./index-DAXt4lXm.js";const t=()=>e.jsxs("div",{className:"p-8 text-center text-xl font-semibold",children:[e.jsx("h2",{children:"Messages"}),e.jsx("p",{children:"Communicate with users and team members."})]});export{t as default};
