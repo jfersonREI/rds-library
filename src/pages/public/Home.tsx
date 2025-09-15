@@ -1,9 +1,9 @@
-import HeroSection from '@/components/Sections/HeroSection/HeroSection';
-import FeaturesSection from '@/components/Sections/FeaturesSection/FeaturesSection';
-import TestimonialSection from '@/components/Sections/TestimonialSection/TestimonialSection';
-import AboutSection from '@/components/Sections/AboutSection/AboutSection';
-import BlogSection from '@/components/Sections/BlogSection/BlogSection';
-import ContactSection from '@/components/Sections/ContactSection/ContactSection';
+import HeroSection from '@/components/Sections/HeroSection';
+import FeaturesSection from '@/components/Sections/FeaturesSection';
+import TestimonialSection from '@/components/Sections/TestimonialSection';
+import AboutSection from '@/components/Sections/AboutSection';
+import BlogSection from '@/components/Sections/BlogSection';
+import ContactSection from '@/components/Sections/ContactSection';
 
 export default function Home() {
   return (
