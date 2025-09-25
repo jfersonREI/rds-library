@@ -6,7 +6,7 @@ import { AppRouteObject } from '../App'; // Import the AppRouteObject type from 
 import { defaultErrorElement } from './error.routes';
 
 // Lazy-load authentication layouts and pages
-import Spinner from '@/components/Layout/Spinner';
+import Spinner from '@/components/common/Spinner';
 const AuthLayout = React.lazy(
   () => import('@/components/Layout/AuthLayout/AuthLayout')
 );
