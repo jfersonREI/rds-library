@@ -42,7 +42,7 @@ export type AppRouteObject = RouteObject & {
 // correctly handle routing when deployed to a subdirectory on a web server,
 // such as GitHub Pages.
 const router = createBrowserRouter(routes, {
-  basename: '/rds-library',
+  basename: import.meta.env.BASE_URL,
 });
 
 // Main App component responsible for providing theming and routing.
